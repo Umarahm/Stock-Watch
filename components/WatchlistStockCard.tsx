@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState, useTransition } from "react";
+import React, { useTransition } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { removeFromWatchlist } from "@/lib/actions/watchlist.actions";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -61,19 +62,12 @@ const WatchlistStockCard: React.FC<WatchlistStockCardProps> = ({
                     >
                         <div className="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center overflow-hidden">
                             {logo ? (
-                                <img
+                                <Image
                                     src={logo}
                                     alt={`${company} logo`}
-                                    className="w-full h-full object-contain"
-                                    onError={(e) => {
-                                        // Fallback to star if logo fails to load
-                                        const target = e.target as HTMLImageElement;
-                                        target.style.display = 'none';
-                                        const parent = target.parentElement;
-                                        if (parent) {
-                                            parent.innerHTML = `<div class="w-full h-full bg-yellow-500 rounded-full flex items-center justify-center"><span class="text-black font-bold text-lg">${symbol.charAt(0)}</span></div>`;
-                                        }
-                                    }}
+                                    width={48}
+                                    height={48}
+                                    className="w-full h-full object-contain rounded-full"
                                 />
                             ) : (
                                 <span className="text-yellow-400 font-bold text-lg">

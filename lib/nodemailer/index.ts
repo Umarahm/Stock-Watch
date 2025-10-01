@@ -1,4 +1,4 @@
-// @ts-ignore
+// @ts-expect-error: nodemailer types may not be properly configured in this environment
 import nodemailer from "nodemailer";
 import { WELCOME_EMAIL_TEMPLATE, NEWS_SUMMARY_EMAIL_TEMPLATE } from "@/lib/nodemailer/templates";
 

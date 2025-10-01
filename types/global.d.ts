@@ -247,6 +247,17 @@ declare global {
         result: FinnhubSearchResult[];
     };
 
+    interface FinnhubStockProfile {
+        name?: string;
+        exchange?: string;
+        logo?: string;
+        ticker?: string;
+    }
+
+    type FinnhubSearchResultWithExchange = FinnhubSearchResult & {
+        __exchange?: string;
+    };
+
     type FormInputProps = {
         name: string;
         label: string;
